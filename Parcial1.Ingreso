@@ -1,0 +1,88 @@
+/*Ingresar el nombre de los 5 candidatos a presidente de Berlinberlin,  
+la edad de cada uno (mayor o igual a 20 años) y la cantidad de votos que sacó en las elecciones.
+Informar: 
+el candidato con más votos
+el candidato con menos votos
+el promedio de edades de los candidatos
+Cantidad de candidatos que tienen entre 25 y 50 años que hayan recibido entre 500 y 900 votos.*/
+
+function mostrar()
+// Dylan Cespedes (Div G)
+{
+	var ingreso;
+	var candidatosMasVotos;
+	var candidatosMenosVotos;
+	var nombreIngresado;
+	var edad;
+	var votos;
+	var promedioCantidatos;
+	var banderaDelPrimero;
+	var masVotos;
+	var menosVotos;
+	var sumaEdades;
+	var candidatosEdadVotos;
+
+	banderaDelPrimero = "es el primero";
+
+	candidatosEdadVotos = 0;
+	sumaEdades = 0;
+	ingreso = 0;
+
+	
+
+	while(ingreso < 5)
+	{
+		nombreIngresado = prompt("Ingrese el nombre de los candidatos.");
+		edad = parseInt(prompt("Ingrese la edad del candidado: (mayor o igual a 20 años)"));
+		while(edad < 20)
+		{
+			edad = parseInt(prompt("ERROR!!! Ingrese la edad del candidato: (mayor o igual a 20 años)"));
+		}
+
+		sumaEdades = sumaEdades + edad;
+
+		votos = parseInt(prompt("Ingrese la cantidad de votos que ha sacado las elecciones."));
+
+		if(banderaDelPrimero == "es el primero")
+		{
+			masVotos = votos;
+			candidatosMasVotos = nombreIngresado;
+			candidatosMenosVotos = nombreIngresado;
+			menosVotos = votos;
+			banderaDelPrimero = "no es el primero";
+
+		}
+		if(masVotos < votos)
+		{
+			masVotos = votos;
+			candidatosMasVotos = nombreIngresado;
+
+		}
+		else if(menosVotos > votos)
+		{
+
+			menosVotos = votos;
+			candidatosMenosVotos = nombreIngresado;
+
+		}
+		if((votos >= 500 && votos <= 900))
+		{
+			if(edad >= 25 && edad <= 50 )
+			{
+				candidatosEdadVotos++;
+			}
+			
+		}
+		
+		
+		ingreso++;
+	}
+	
+	promedioCantidatos = sumaEdades / 5;
+
+	document.write("<br> El candidato con mas votos es: " + candidatosMasVotos);
+	document.write("<br> El candidato con menos votos es: " + candidatosMenosVotos);
+	document.write("<br> El promedio de edades de los candidatos es: " + promedioCantidatos);
+	document.write("<br> La cantidad de candidatos que tienen entre 25 y 50 años que hayan recibido entre 500 y 900 votos: " + candidatosEdadVotos);
+
+}//FIN DE LA FUNCIÓN
